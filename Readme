@@ -1,0 +1,57 @@
+Here’s a sample `README.md` file for your port scanner project:
+
+---
+
+# Multiprocessing Port Scanner with Scapy
+
+This is a simple Python-based port scanner that uses the `scapy` library to send TCP SYN packets and determine open ports on a target machine. The script leverages multiprocessing to scan multiple ports in parallel, significantly speeding up the process.
+
+## Features
+- **SYN Scan:** Identifies open ports by sending TCP SYN packets and listening for SYN-ACK responses.
+- **Multiprocessing:** Uses `multiprocessing.Pool` to scan ports concurrently for faster results.
+- **Timeout Handling:** Configurable timeout for unresponsive ports, preventing the script from stalling.
+- **Error Handling:** Includes exception handling for network issues or invalid configurations.
+- **Scalable:** Easily adjust the port range to scan by modifying the `target_ports` variable.
+
+## How It Works
+- **`scan_port()`**: Sends a TCP SYN packet to a specific port. If it receives a SYN-ACK, the port is considered open and the port number is returned.
+- **`port_scan()`**: Distributes port scanning tasks across multiple processes using `multiprocessing.Pool`, returning a list of open ports.
+- **Main Execution**: Scans the first 1000 ports on `127.0.0.1` by default but can be easily configured to scan any target or range of ports.
+
+## Requirements
+- Python 3.x
+- `scapy` library (Install using `pip install scapy`)
+- Network access to the target machine
+
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/multiprocessing-port-scanner.git
+   ```
+2. Install dependencies:
+   ```bash
+   pip install scapy
+   ```
+
+## Usage
+1. Modify the `target` variable in `port_scanner.py` to the IP address you want to scan.
+2. Adjust the `target_ports` range as needed.
+3. Run the script:
+   ```bash
+   python port_scanner.py
+   ```
+
+The script will output a list of open ports, if any are found, or notify you if no open ports are detected.
+
+## Example
+```bash
+python port_scanner.py
+Open ports: [22, 80, 443]
+```
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+You can modify the link to the repository and adjust other details as necessary!
