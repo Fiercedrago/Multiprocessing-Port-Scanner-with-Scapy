@@ -19,7 +19,7 @@ def port_scan(target, ports):
 
 if __name__ == '__main__':
     freeze_support()
-    target = "127.0.0.1"
+    target = "100.0.0.1"
     target_ports = range(1, 1001)
 
     try:
